@@ -1,0 +1,72 @@
+# ── Web Framework ─────────────────────────────────────────────────────────────
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-multipart==0.0.12
+
+# ── Auth ──────────────────────────────────────────────────────────────────────
+python-jose[cryptography]==3.3.0
+bcrypt==4.2.0
+passlib[bcrypt]==1.7.4
+
+# ── Database ──────────────────────────────────────────────────────────────────
+sqlalchemy[asyncio]==2.0.35
+asyncpg==0.29.0
+alembic==1.13.3
+
+# ── Redis / Celery ────────────────────────────────────────────────────────────
+celery[redis]==5.4.0
+redis[hiredis]==5.1.1
+kombu==5.4.0
+flower==2.0.1
+
+# ── S3 ────────────────────────────────────────────────────────────────────────
+aioboto3==13.2.0
+boto3==1.35.36
+
+# ── Anthropic ─────────────────────────────────────────────────────────────────
+anthropic==0.36.2
+
+# ── AI / ML ───────────────────────────────────────────────────────────────────
+torch==2.4.1
+torchvision==0.19.1
+torchaudio==2.4.1
+transformers==4.45.2
+accelerate==0.34.2
+huggingface-hub==0.25.2
+
+# ── Speech ────────────────────────────────────────────────────────────────────
+whisperx==3.1.5
+faster-whisper==1.0.3
+pyannote.audio==3.3.2
+
+# ── Computer Vision ───────────────────────────────────────────────────────────
+opencv-python-headless==4.10.0.84
+Pillow==10.4.0
+numpy==1.26.4
+insightface==0.7.3
+onnxruntime-gpu==1.19.2        # InsightFace backend
+
+# ── Scene Detection ───────────────────────────────────────────────────────────
+scenedetect[opencv]==0.6.4
+
+# ── Face / Emotion ────────────────────────────────────────────────────────────
+deepface==0.0.93
+tf-keras==2.16.0               # DeepFace dependency
+
+# ── Audio ─────────────────────────────────────────────────────────────────────
+deepfilternet==0.5.6
+demucs==4.0.1
+soundfile==0.12.1
+librosa==0.10.2
+
+# ── Vector DB ─────────────────────────────────────────────────────────────────
+qdrant-client==1.11.3
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv==1.0.1
+httpx==0.27.2
+aiofiles==24.1.0
+tenacity==9.0.0
+structlog==24.4.0

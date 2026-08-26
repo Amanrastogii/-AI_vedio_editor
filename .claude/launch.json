@@ -1,0 +1,34 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js Frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "frontend"],
+      "port": 3000,
+      "autoPort": false
+    },
+    {
+      "name": "FastAPI Backend (API)",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "backend.api.main:app", "--reload", "--reload-dir", "backend", "--host", "0.0.0.0", "--port", "8000"],
+      "port": 8000
+    },
+    {
+      "name": "Celery GPU Worker",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "celery", "-A", "backend.workers.celery_app", "worker", "--queues=gpu_queue", "--concurrency=1", "--loglevel=info", "--hostname=gpu-worker@%h", "--pool=solo"]
+    },
+    {
+      "name": "Celery CPU Worker",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "celery", "-A", "backend.workers.celery_app", "worker", "--queues=cpu_queue,io_queue", "--concurrency=4", "--loglevel=info", "--hostname=cpu-worker@%h", "--pool=solo"]
+    },
+    {
+      "name": "Flower (Celery Monitor)",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "celery", "-A", "backend.workers.celery_app", "flower", "--port=5555"],
+      "port": 5555
+    }
+  ]
+}
